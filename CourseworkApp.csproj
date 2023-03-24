@@ -12,7 +12,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>CourseworkApp</ApplicationTitle>
+		<ApplicationTitle>FitFanatic</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.courseworkapp</ApplicationId>
