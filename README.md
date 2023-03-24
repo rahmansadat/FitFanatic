@@ -1,6 +1,7 @@
 # FitFanatic
 ---
 ![](./Resources/Splash/splash.svg)
+<img src="./Resources/Images/github_logo.svg" width="400" />
 
 Welcome to FitFanatic, the workout tracker app that will make you fall in love with fitness again.
 
