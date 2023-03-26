@@ -5,9 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:CourseworkApp.Views"
     Shell.FlyoutBehavior="Disabled"
->
-
-    
+    TabBarBackgroundColor="#58CD36">
 
     <!--Main App layout-->
     <TabBar Route="mainapp">
@@ -15,28 +13,28 @@
             Title="Log Workout"
             Route="logworkout"
             Icon="plus.png">
-            <ShellContent ContentTemplate="{DataTemplate views:LogWorkoutPage}"/>
+            <ShellContent ContentTemplate="{DataTemplate views:LogWorkoutPage}" Route="LogWorkoutPage"/>
         </Tab>
 
         <Tab
             Title="Exercises"
             Route="exercises"
             Icon="dumbbell.png">
-            <ShellContent ContentTemplate="{DataTemplate views:ExercisesPage}"/>
+            <ShellContent ContentTemplate="{DataTemplate views:ExercisesPage}" Route="ExercisesPage"/>
         </Tab>
 
         <Tab
             Title="Score"
             Route="score"
             Icon="trophy.png">
-            <ShellContent ContentTemplate="{DataTemplate views:ScorePage}"/>
+            <ShellContent ContentTemplate="{DataTemplate views:ScorePage}" Route="ScorePage"/>
         </Tab>
 
         <Tab
             Title="History"
             Route="history"
             Icon="history.png">
-            <ShellContent ContentTemplate="{DataTemplate views:HistoryPage}"/>
+            <ShellContent ContentTemplate="{DataTemplate views:HistoryPage}" Route="HistoryPage"/>
         </Tab>
     </TabBar>
 
