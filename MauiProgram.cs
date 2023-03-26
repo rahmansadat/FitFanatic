@@ -31,13 +31,13 @@ public static class MauiProgram
     {
         //Pages
         //mauiAppBuilder.Services.AddTransient(typeof(Views.ExercisesPage));
-        //mauiAppBuilder.Services.AddTransient(typeof(Views.HistoryPage));
+        mauiAppBuilder.Services.AddTransient(typeof(Views.HistoryPage));
         mauiAppBuilder.Services.AddSingleton(typeof(Views.LogWorkoutPage));
         //mauiAppBuilder.Services.AddTransient(typeof(Views.ScorePage));
 
         //Services
         //mauiAppBuilder.Services.AddTransient(typeof(ViewModels.ExercisesPageViewModel));
-        //mauiAppBuilder.Services.AddTransient(typeof(ViewModels.HistoryPageViewModel));
+        mauiAppBuilder.Services.AddTransient(typeof(ViewModels.HistoryPageViewModel));
         mauiAppBuilder.Services.AddSingleton(typeof(ViewModels.LogWorkoutPageViewModel));
         //mauiAppBuilder.Services.AddTransient(typeof(ViewModels.ScorePageViewModel));
 
