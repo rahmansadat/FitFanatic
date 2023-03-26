@@ -12,19 +12,6 @@ namespace CourseworkApp.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-
-        //int rep1;
-
-        //public int Rep1
-        //{
-        //    get => rep1;
-        //    set
-        //    {
-        //        rep1 = value;
-        //        OnPropertyChanged(nameof(rep1));
-        //    }
-        //}
-
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             if (PropertyChanged != null)
