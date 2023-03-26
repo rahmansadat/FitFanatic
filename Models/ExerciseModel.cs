@@ -8,9 +8,9 @@ using SQLite;
 namespace CourseworkApp.Models
 {
     [Table("Exercises")]
-    class ExerciseModel
+    public class ExerciseModel
     {
-        [PrimaryKey, AutoIncrement, Column("ID")]
+        [PrimaryKey, AutoIncrement, Column("id")]
         public int Id { get; set; }
         
         [MaxLength(250), Column("name")]
