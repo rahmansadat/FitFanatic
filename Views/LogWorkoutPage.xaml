@@ -7,8 +7,8 @@
              x:DataType="viewmodel:LogWorkoutPageViewModel">
 
     <Grid RowDefinitions="0.2*, 0.8*">
-        <BoxView Grid.Row="0" Color="Green" />
-        <BoxView Grid.Row="1" Color="yellow" />
+        <BoxView Grid.Row="0" Color="#58CD36" />
+        <BoxView Grid.Row="1" Color="Black" />
 
         <Label Grid.Row="0"
             Text="INSTRUCTIONS&#10;1. Choose an exercise from the dropdown list.&#10;2. Define the sets and reps.&#10;3. Tap SUBMIT WORKOUT to log the workout."
