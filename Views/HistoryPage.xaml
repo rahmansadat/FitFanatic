@@ -2,11 +2,27 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CourseworkApp.Views.HistoryPage"
-             Title="Workout history">
-    <VerticalStackLayout>
-        <Label 
-            Text="View all recorded workout sessions!"
+             Title="Workout history"
+             BackgroundColor="Transparent">
+
+
+    <Grid RowDefinitions="0.2*, 0.8*">
+        <BoxView Grid.Row="0" Color="#58CD36" />
+        <BoxView Grid.Row="1" Color="Black" />
+
+        <Label Grid.Row="0"
+            Text="View below a complete log of all workouts performed."
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+        <ScrollView Grid.Row="1">
+
+            <StackLayout x:Name="mainStack" Margin ="20" Spacing="20">
+            </StackLayout>
+
+        </ScrollView>
+
+
+
+    </Grid>
 </ContentPage>
