@@ -2,11 +2,426 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CourseworkApp.Views.LogWorkoutPage"
-             Title="Log workout">
-    <VerticalStackLayout>
-        <Label 
-            Text="Log your workout!"
+             Title="Log workout"
+             xmlns:viewmodel="clr-namespace:CourseworkApp.ViewModels"
+             x:DataType="viewmodel:LogWorkoutPageViewModel">
+
+    <Grid RowDefinitions="0.2*, 0.8*">
+        <BoxView Grid.Row="0" Color="Green" />
+        <BoxView Grid.Row="1" Color="yellow" />
+
+        <Label Grid.Row="0"
+            Text="INSTRUCTIONS&#10;1. Choose an exercise from the dropdown list.&#10;2. Define the sets and reps.&#10;3. Tap SUBMIT WORKOUT to log the workout."
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+        <Grid Grid.Row="1" Margin="10"
+              RowDefinitions="0.15*, 0.15*, 0.15*, 0.15*, 0.15*, 0.15*, 0.1*"
+              ColumnDefinitions="0.5*, 0.25*, 0.25*">
+
+            <!--first exercise row-->
+            <StackLayout Grid.Row="0" Grid.Column="0"
+                         Orientation="Vertical"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                <Label
+                        Text="Exercise:"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" />
+
+                <Picker x:Name="picker1"
+                        Title="Select exercise"
+                        ItemsSource="{Binding Items}"
+                        ItemDisplayBinding="{Binding Name}"
+                        SelectedIndexChanged="OnPickerValueChanged" />
+
+            </StackLayout>
+
+            <StackLayout Grid.Row="0" Grid.Column="1"
+                    Orientation="Vertical"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                <Label
+                        Text="Sets:"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" />
+
+                <StackLayout Spacing="4"
+                    Orientation="Horizontal"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                    <Stepper x:Name="stepper1"
+                        Maximum="20" Minimum="0" HeightRequest="40" WidthRequest="70"
+                        Increment="1"
+                        HorizontalOptions="Center"
+                        ValueChanged="OnStepperValueChanged"/>
+
+                    <Label
+                        x:Name="stepperLabel1"
+                        Text="0"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" />
+
+                </StackLayout>
+
+            </StackLayout>
+
+            <StackLayout Grid.Row="0" Grid.Column="2"
+                    Orientation="Vertical"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                <Label
+                        Text="Reps:"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" />
+                <Entry x:Name="reps1"
+                       TextChanged="OnRepsEntryValueChanged"
+                       Keyboard="Numeric"
+                 />
+
+            </StackLayout>
+
+            <!--second exercise row-->
+            <StackLayout Grid.Row="1" Grid.Column="0"
+                         Orientation="Vertical"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                <Label
+                        Text="Exercise:"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" />
+
+                <Picker x:Name="picker2"
+                        Title="Select exercise"
+                        ItemsSource="{Binding Items}"
+                        ItemDisplayBinding="{Binding Name}"
+                        SelectedIndexChanged="OnPickerValueChanged" />
+
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" Grid.Column="1"
+                    Orientation="Vertical"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                <Label
+                        Text="Sets:"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" />
+
+                <StackLayout Spacing="4"
+                    Orientation="Horizontal"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                    <Stepper x:Name="stepper2"
+                        Maximum="20" Minimum="0" HeightRequest="40" WidthRequest="70"
+                        Increment="1"
+                        HorizontalOptions="Center"
+                        ValueChanged="OnStepperValueChanged"/>
+
+                    <Label
+                        x:Name="stepperLabel2"
+                        Text="0"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" />
+
+                </StackLayout>
+
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" Grid.Column="2"
+                    Orientation="Vertical"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                <Label
+                        Text="Reps:"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" />
+
+                <Entry x:Name="reps2"
+                       TextChanged="OnRepsEntryValueChanged"
+                       Keyboard="Numeric"
+                 />
+
+            </StackLayout>
+
+            <!--third exercise row-->
+            <StackLayout Grid.Row="2" Grid.Column="0"
+                         Orientation="Vertical"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                <Label
+                        Text="Exercise:"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" />
+
+                <Picker x:Name="picker3"
+                        Title="Select exercise"
+                        ItemsSource="{Binding Items}"
+                        ItemDisplayBinding="{Binding Name}"
+                        SelectedIndexChanged="OnPickerValueChanged" />
+
+            </StackLayout>
+
+            <StackLayout Grid.Row="2" Grid.Column="1"
+                    Orientation="Vertical"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                <Label
+                        Text="Sets:"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" />
+
+                <StackLayout Spacing="4"
+                    Orientation="Horizontal"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                    <Stepper x:Name="stepper3"
+                        Maximum="20" Minimum="0" HeightRequest="40" WidthRequest="70"
+                        Increment="1"
+                        HorizontalOptions="Center"
+                        ValueChanged="OnStepperValueChanged"/>
+
+                    <Label
+                        x:Name="stepperLabel3"
+                        Text="0"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" />
+
+                </StackLayout>
+
+            </StackLayout>
+
+            <StackLayout Grid.Row="2" Grid.Column="2"
+                    Orientation="Vertical"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                <Label
+                        Text="Reps:"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" />
+
+                <Entry x:Name="reps3"
+                       TextChanged="OnRepsEntryValueChanged"
+                       Keyboard="Numeric"
+                 />
+
+            </StackLayout>
+
+            <!--fourth exercise row-->
+            <StackLayout Grid.Row="3" Grid.Column="0"
+                         Orientation="Vertical"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                <Label
+                        Text="Exercise:"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" />
+
+                <Picker x:Name="picker4"
+                        Title="Select exercise"
+                        ItemsSource="{Binding Items}"
+                        ItemDisplayBinding="{Binding Name}"
+                        SelectedIndexChanged="OnPickerValueChanged" />
+
+            </StackLayout>
+
+            <StackLayout Grid.Row="3" Grid.Column="1"
+                    Orientation="Vertical"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                <Label
+                        Text="Sets:"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" />
+
+                <StackLayout Spacing="4"
+                    Orientation="Horizontal"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                    <Stepper x:Name="stepper4"
+                        Maximum="20" Minimum="0" HeightRequest="40" WidthRequest="70"
+                        Increment="1"
+                        HorizontalOptions="Center"
+                        ValueChanged="OnStepperValueChanged"/>
+
+                    <Label
+                        x:Name="stepperLabel4"
+                        Text="0"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" />
+
+                </StackLayout>
+
+            </StackLayout>
+
+            <StackLayout Grid.Row="3" Grid.Column="2"
+                    Orientation="Vertical"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                <Label
+                        Text="Reps:"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" />
+                <Entry x:Name="reps4"
+                       TextChanged="OnRepsEntryValueChanged"
+                       Keyboard="Numeric"
+                 />
+
+            </StackLayout>
+
+            <!--fifth exercise row-->
+            <StackLayout Grid.Row="4" Grid.Column="0"
+                         Orientation="Vertical"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                <Label
+                        Text="Exercise:"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" />
+
+                <Picker x:Name="picker5"
+                        Title="Select exercise"
+                        ItemsSource="{Binding Items}"
+                        ItemDisplayBinding="{Binding Name}"
+                        SelectedIndexChanged="OnPickerValueChanged" />
+
+            </StackLayout>
+
+            <StackLayout Grid.Row="4" Grid.Column="1"
+                    Orientation="Vertical"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                <Label
+                        Text="Sets:"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" />
+
+                <StackLayout Spacing="4"
+                    Orientation="Horizontal"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                    <Stepper x:Name="stepper5"
+                        Maximum="20" Minimum="0" HeightRequest="40" WidthRequest="70"
+                        Increment="1"
+                        HorizontalOptions="Center"
+                        ValueChanged="OnStepperValueChanged"/>
+
+                    <Label
+                        x:Name="stepperLabel5"
+                        Text="0"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" />
+
+                </StackLayout>
+
+            </StackLayout>
+
+            <StackLayout Grid.Row="4" Grid.Column="2"
+                    Orientation="Vertical"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                <Label
+                        Text="Reps:"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" />
+                <Entry x:Name="reps5"
+                       TextChanged="OnRepsEntryValueChanged"
+                       Keyboard="Numeric"
+                 />
+
+            </StackLayout>
+
+            <!--sixth exercise row-->
+            <StackLayout Grid.Row="5" Grid.Column="0"
+                         Orientation="Vertical"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                <Label
+                        Text="Exercise:"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" />
+
+                <Picker x:Name="picker6"
+                        Title="Select exercise"
+                        ItemsSource="{Binding Items}"
+                        ItemDisplayBinding="{Binding Name}"
+                        SelectedIndexChanged="OnPickerValueChanged" />
+
+            </StackLayout>
+
+            <StackLayout Grid.Row="5" Grid.Column="1"
+                    Orientation="Vertical"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                <Label
+                        Text="Sets:"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" />
+
+                <StackLayout Spacing="4"
+                    Orientation="Horizontal"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                    <Stepper x:Name="stepper6"
+                        Maximum="20" Minimum="0" HeightRequest="40" WidthRequest="70"
+                        Increment="1"
+                        HorizontalOptions="Center"
+                        ValueChanged="OnStepperValueChanged"/>
+
+                    <Label
+                        x:Name="stepperLabel6"
+                        Text="0"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" />
+
+                </StackLayout>
+
+            </StackLayout>
+
+            <StackLayout Grid.Row="5" Grid.Column="2"
+                    Orientation="Vertical"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                <Label
+                        Text="Reps:"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" />
+                <Entry x:Name="reps6"
+                       TextChanged="OnRepsEntryValueChanged"
+                       Keyboard="Numeric"
+                 />
+
+            </StackLayout>
+
+            <Button Grid.Row="6" Grid.ColumnSpan="3"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                Text="Submit workout"
+                Command="{Binding SubmitWorkoutCommand}" />
+        </Grid>
+    </Grid>
 </ContentPage>
