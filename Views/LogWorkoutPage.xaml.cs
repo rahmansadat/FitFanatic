@@ -36,9 +36,9 @@ public partial class LogWorkoutPage : ContentPage
 
     void OnRepsEntryValueChanged(object sender, TextChangedEventArgs e)
     {
-        Type type = reps1.Text.GetType();
-        Console.WriteLine("The value is now: ");
-        Console.WriteLine(type);
+        //Type type = reps1.Text.GetType();
+        //Console.WriteLine("The value is now: ");
+        //Console.WriteLine(type);
 
         var viewModel = (BindingContext as LogWorkoutPageViewModel);
         // Set model value according to the value in the field
