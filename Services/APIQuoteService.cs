@@ -10,7 +10,7 @@ using CourseworkApp.Models;
 
 namespace CourseworkApp.Services
 {
-    internal static class APIQuoteService : IQuoteService
+    internal static class APIQuoteService
     {
         static HttpClient _client;
         static public List<QuoteModel> quotes;
