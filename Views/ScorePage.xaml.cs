@@ -53,7 +53,7 @@ public partial class ScorePage : ContentPage
         {
             Label noQuoteLabel = new Label
             {
-                Text = "No quote available at the moment",
+                Text = "No quote available at the moment.\nCheck your internet connection.",
                 FontAttributes = FontAttributes.Bold,
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.Center
@@ -61,8 +61,6 @@ public partial class ScorePage : ContentPage
             mystack1.Add(noQuoteLabel);
             Console.WriteLine("No quotes available at the moment.");
         }
-
-
 
         // SCORING SYSTEM
 

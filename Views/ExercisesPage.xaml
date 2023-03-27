@@ -4,28 +4,17 @@
              x:Class="CourseworkApp.Views.ExercisesPage"
              Title="Exercises"
              xmlns:viewmodel="clr-namespace:CourseworkApp.ViewModels"
-             x:DataType="viewmodel:ExercisesPageViewModel">
+             x:DataType="viewmodel:ExercisesPageViewModel"
+             BackgroundColor="White">
 
     <Grid x:Name="mygrid" RowDefinitions="0.2*, 0.8*">
-        <BoxView Grid.Row="0" Color="#58CD36" />
-        <BoxView Grid.Row="1" Color="Black" />
+        <BoxView Style="{StaticResource headerBox}"/>
+        <BoxView Grid.Row="1" Color="White" />
 
         <Label Grid.Row="0"
             Text="Swipe to view all exercises in the database."
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            Style="{StaticResource headerLabel}"/>
 
     </Grid>
 
-
-
-
-
-
-        
-    
-    
-    
-    
-    
 </ContentPage>

@@ -8,6 +8,22 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+
+                <ResourceDictionary>
+                    <Style x:Key ="headerLabel" TargetType="Label">
+                        <Setter Property="VerticalOptions" Value="Center"/>
+                        <Setter Property="HorizontalOptions" Value="Center"/>
+                        <Setter Property="FontAttributes" Value="Italic" />
+                        <Setter Property="TextColor" Value="White" />
+                    </Style>
+
+                    <Style x:Key ="headerBox" TargetType="BoxView">
+                        <Setter Property="Grid.Row" Value="0"/>
+                        <Setter Property="Color" Value="#58CD36"/>
+                        <Setter Property="CornerRadius" Value="0, 150, 0, 150" />
+                    </Style>
+                </ResourceDictionary>
+
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

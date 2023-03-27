@@ -44,14 +44,22 @@ public partial class HistoryPage : ContentPage
                         Text = workout,
                         TextColor = Colors.White,
                         FontSize = 14,
-                        FontAttributes = FontAttributes.Bold
+                        FontAttributes = FontAttributes.Bold,
+                        HorizontalOptions = LayoutOptions.Center,
                     }
                 });
             }
 
             Button button = new Button
             {
-                Text = "Erase workout history"
+                VerticalOptions = LayoutOptions.Center,
+                HorizontalOptions = LayoutOptions.Center,
+                Text = "Erase workout history",
+                BorderColor = Colors.Black,
+                TextColor = Colors.Black,
+                BorderWidth = 4,
+                BackgroundColor = Colors.DarkGreen,
+                CornerRadius = 50
             };
             button.Clicked += async (sender, args) => EraseWorkoutLog();
             mainStack.Add(button);

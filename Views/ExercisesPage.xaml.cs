@@ -1,4 +1,5 @@
 ﻿using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Shapes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,13 +33,13 @@ public partial class ExercisesPage : ContentPage
             Image image = new Image { Aspect = Aspect.AspectFill, HeightRequest = 280, WidthRequest = 350};
             image.SetBinding(Image.SourceProperty, "ImageURL");
 
-            Label nameLabel = new Label { FontAttributes = FontAttributes.Bold };
+            Label nameLabel = new Label { FontAttributes = FontAttributes.Bold, HorizontalOptions = LayoutOptions.Center };
             nameLabel.SetBinding(Label.TextProperty, "Name");
 
-            Label bodypartLabel = new Label { FontAttributes = FontAttributes.Bold};
+            Label bodypartLabel = new Label { FontAttributes = FontAttributes.Bold, HorizontalOptions = LayoutOptions.Center };
             bodypartLabel.SetBinding(Label.TextProperty, "Bodypart");
 
-            Label instructionsLabel = new Label { FontAttributes = FontAttributes.Italic, MaximumWidthRequest = 300};
+            Label instructionsLabel = new Label { HorizontalOptions = LayoutOptions.Center, Margin = new Thickness(20, 0), FontAttributes = FontAttributes.Italic, MaximumWidthRequest = 300};
             instructionsLabel.SetBinding(Label.TextProperty, "Instructions");
             
             grid.Add(nameLabel, 0, 0);
@@ -49,16 +50,26 @@ public partial class ExercisesPage : ContentPage
             return grid;
         });
 
-        IndicatorView indicatorView = new IndicatorView()
-        {
-            IndicatorColor = Colors.Red,
-            SelectedIndicatorColor = Colors.DarkRed,
-            IndicatorSize = 12,
-            Margin = new Thickness(0, 0, 0, 40)
-        };
 
-        mygrid.Add(carouselView, 0, 1);
-        mygrid.Add(indicatorView, 0, 0);
+
+        mygrid.Add(new Border
+        {
+            Stroke = Color.FromArgb("#58CD36"),
+            Background = Color.FromArgb("DarkGreen"),
+            StrokeThickness = 4,
+            WidthRequest = 350,
+            HeightRequest = 500,
+            Padding = new Thickness(16, 8),
+            HorizontalOptions = LayoutOptions.Center,
+            StrokeShape = new RoundRectangle
+            {
+                CornerRadius = new CornerRadius(30, 30, 30, 30)
+            },
+            Content = carouselView
+
+        }, 0, 1);
+
+        //mygrid.Add(carouselView, 0, 1);
 
     }
 }

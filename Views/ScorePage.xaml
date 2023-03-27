@@ -2,18 +2,17 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CourseworkApp.Views.ScorePage"
-             Title="Score">
+             Title="Score"
+             BackgroundColor="White">
 
     <Grid RowDefinitions="0.2*, 0.4*, 0.4*">
-        <BoxView Grid.Row="0" Color="#58CD36" />
+        <BoxView Style="{StaticResource headerBox}"/>
         <BoxView Grid.Row="1" Color="White" />
         <BoxView Grid.Row="2" Color="White" />
 
         <Label Grid.Row="0"
             Text="Read the quote and get motivated!&#10;Keep working out and you'll earn the next shiny badge!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-
+            Style="{StaticResource headerLabel}"/>
 
         <StackLayout
             x:Name="mystack1"

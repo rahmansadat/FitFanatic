@@ -4,16 +4,16 @@
              x:Class="CourseworkApp.Views.LogWorkoutPage"
              Title="Log workout"
              xmlns:viewmodel="clr-namespace:CourseworkApp.ViewModels"
-             x:DataType="viewmodel:LogWorkoutPageViewModel">
+             x:DataType="viewmodel:LogWorkoutPageViewModel"
+             BackgroundColor="White">
 
     <Grid RowDefinitions="0.2*, 0.8*">
-        <BoxView Grid.Row="0" Color="#58CD36" />
-        <BoxView Grid.Row="1" Color="Black" />
+        <BoxView Style="{StaticResource headerBox}"/>
+        <BoxView Grid.Row="1" Color="White" />
 
         <Label Grid.Row="0"
             Text="INSTRUCTIONS&#10;1. Choose an exercise from the dropdown list.&#10;2. Define the sets and reps.&#10;3. Tap SUBMIT WORKOUT to log the workout."
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            Style="{StaticResource headerLabel}"/>
 
         <Grid Grid.Row="1" Margin="10"
               RowDefinitions="0.15*, 0.15*, 0.15*, 0.15*, 0.15*, 0.15*, 0.1*"
@@ -418,9 +418,14 @@
             </StackLayout>
 
             <Button Grid.Row="6" Grid.ColumnSpan="3"
-                VerticalOptions="CenterAndExpand"
-                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
                 Text="Submit workout"
+                BorderColor="Black"
+                TextColor="Black"
+                BorderWidth ="4"
+                BackgroundColor="DarkGreen"
+                CornerRadius="50"
                 Command="{Binding SubmitWorkoutCommand}" />
         </Grid>
     </Grid>
