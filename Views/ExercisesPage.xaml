@@ -2,11 +2,30 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CourseworkApp.Views.ExercisesPage"
-             Title="Exercises">
-    <VerticalStackLayout>
-        <Label 
-            Text="Get exercise ideas by choosing a body part!"
+             Title="Exercises"
+             xmlns:viewmodel="clr-namespace:CourseworkApp.ViewModels"
+             x:DataType="viewmodel:ExercisesPageViewModel">
+
+    <Grid x:Name="mygrid" RowDefinitions="0.2*, 0.8*">
+        <BoxView Grid.Row="0" Color="#58CD36" />
+        <BoxView Grid.Row="1" Color="Black" />
+
+        <Label Grid.Row="0"
+            Text="Swipe to view all exercises in the database."
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    </Grid>
+
+
+
+
+
+
+        
+    
+    
+    
+    
+    
 </ContentPage>
