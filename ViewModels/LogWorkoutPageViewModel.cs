@@ -218,6 +218,11 @@ namespace CourseworkApp.ViewModels
             {
                 dataToLog += $"\n{Exercise6.Name} - Sets: {Sets6}, Reps: {Reps6}";
             }
+            if ((Reps1 == 0 | Sets1 == 0 | Exercise1 == null) && (Reps2 == 0 | Sets2 == 0 | Exercise2 == null) && (Reps3 == 0 | Sets3 == 0 | Exercise3 == null) && (Reps4 == 0 | Sets4 == 0 | Exercise4 == null) && (Reps5 == 0 | Sets5 == 0 | Exercise5 == null) && (Reps6 == 0 | Sets6 == 0 | Exercise6 == null))
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "Workout couldn't be logged", "OK");
+                return;
+            }
 
             dataToLog += "\n\n";
 
