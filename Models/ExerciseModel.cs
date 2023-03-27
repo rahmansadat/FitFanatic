@@ -22,7 +22,7 @@ namespace CourseworkApp.Models
         [MaxLength(250), Column("imageURL")]
         public string ImageURL { get; set; }
 
-        [Column("bodypartID")]
-        public int BodypartId { get; set; }
+        [MaxLength(250), Column("bodypart")]
+        public string Bodypart { get; set; }
     }
 }

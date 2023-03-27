@@ -10,7 +10,5 @@ namespace CourseworkApp.Interfaces
     public interface IDatabaseService
     {
         List<ExerciseModel> GetExercises();
-        List<ExerciseModel> GetExercisesByBodypart(int bodypartID);
-        List<BodypartModel> GetBodyparts();
     }
 }
