@@ -8,6 +8,8 @@ namespace CourseworkApp
 {
     class Constants
     {
+        public static string apiEndpoint = "https://api.fisenko.net/v1/quotes/en/random";
+
         public const string DatabaseFilename = "appDatabase.db3";
 
         public const SQLite.SQLiteOpenFlags Flags =
