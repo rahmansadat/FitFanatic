@@ -195,7 +195,6 @@ namespace CourseworkApp.Services
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error returning exercises");
                 return new List<ExerciseModel>();
             }
         }
