@@ -3,10 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CourseworkApp.Views.ScorePage"
              Title="Score">
-    <VerticalStackLayout>
-        <Label 
-            Text="View your current score and get motivated!"
+
+    <Grid RowDefinitions="0.2*, 0.4*, 0.4*">
+        <BoxView Grid.Row="0" Color="#58CD36" />
+        <BoxView Grid.Row="1" Color="White" />
+        <BoxView Grid.Row="2" Color="White" />
+
+        <Label Grid.Row="0"
+            Text="Read the quote and get motivated!&#10;Keep working out and you'll earn the next shiny badge!"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+
+        <StackLayout
+            x:Name="mystack1"
+            Grid.Row="1"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand"/>
+
+        <StackLayout
+            x:Name="mystack2"
+            Grid.Row="2"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand"/>
+    </Grid>
+
 </ContentPage>
