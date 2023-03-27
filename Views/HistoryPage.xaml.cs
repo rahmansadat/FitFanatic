@@ -66,6 +66,7 @@ public partial class HistoryPage : ContentPage
     void EraseWorkoutLog()
     {
         File.Delete(Constants.WorkoutLogPath);
+        Preferences.Default.Remove("workoutsCount");
         OnAppearing();
     }
 
