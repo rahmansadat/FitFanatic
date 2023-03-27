@@ -1,4 +1,6 @@
-﻿namespace CourseworkApp;
+﻿using CourseworkApp.Services;
+
+namespace CourseworkApp;
 
 public partial class App : Application
 {
@@ -7,5 +9,8 @@ public partial class App : Application
 		InitializeComponent();
 
 		MainPage = new AppShell();
-	}
+
+		//var apiQuoteService = new Services.APIQuoteService();
+		APIQuoteService.GetQuotesFromAPI();
+    }
 }
