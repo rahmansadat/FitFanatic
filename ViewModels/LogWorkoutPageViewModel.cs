@@ -224,10 +224,20 @@ namespace CourseworkApp.ViewModels
             // Writing the data to the file
             File.AppendAllText(Constants.WorkoutLogPath, dataToLog); // also creates the file if not exists
 
-            // Reading the file contents for debugging purposes
-            //var fileData = File.ReadAllText(Constants.WorkoutLogPath);
-            //Console.WriteLine("This is what's in the file: ");
-            //Console.WriteLine(fileData);
+            // Log the number of workouts
+            if (Preferences.Default.ContainsKey("workoutsCount"))
+            {
+                int workoutsCount = Preferences.Default.Get("workoutsCount", -1);
+                Preferences.Default.Set("workoutsCount", workoutsCount + 1);
+            } else
+            {
+                Preferences.Default.Set("workoutsCount", 1);
+            }
+
+            // Checking
+            int checkCurrentCount = Preferences.Default.Get("workoutsCount", -1);
+            Console.WriteLine("Current preferences value is: ");
+            Console.WriteLine(checkCurrentCount);
 
             await Application.Current.MainPage.DisplayAlert("Success", "Workout has been logged", "OK");
         }
