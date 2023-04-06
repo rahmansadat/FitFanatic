@@ -136,12 +136,23 @@ public partial class ScorePage : ContentPage
                 VerticalOptions = LayoutOptions.Center
             });
 
-            mystack2.Add(new Label
+            if (workoutsCount == 1)
             {
-                FontAttributes = FontAttributes.Italic,
-                Margin = 20,
-                Text = $"You have completed {workoutsCount} workouts total.\nYou need to do {5 - workoutsCount} more to get the Bronze Shield."
-            });
+                mystack2.Add(new Label
+                {
+                    FontAttributes = FontAttributes.Italic,
+                    Margin = 20,
+                    Text = $"You have completed {workoutsCount} workout total.\nYou need to do {5 - workoutsCount} more to get the Bronze Shield."
+                });
+            } else
+            {
+                mystack2.Add(new Label
+                {
+                    FontAttributes = FontAttributes.Italic,
+                    Margin = 20,
+                    Text = $"You have completed {workoutsCount} workouts total.\nYou need to do {5 - workoutsCount} more to get the Bronze Shield."
+                });
+            }
 
         } else if (workoutsCount < 10)
         {
