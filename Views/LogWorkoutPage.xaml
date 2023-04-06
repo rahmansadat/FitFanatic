@@ -5,11 +5,11 @@
              Title="Log workout"
              xmlns:viewmodel="clr-namespace:CourseworkApp.ViewModels"
              x:DataType="viewmodel:LogWorkoutPageViewModel"
-             BackgroundColor="White">
+             BackgroundColor="#102825">
+
 
     <Grid RowDefinitions="0.2*, 0.8*">
         <BoxView Style="{StaticResource headerBox}"/>
-        <BoxView Grid.Row="1" Color="White" />
 
         <Label Grid.Row="0"
             Text="INSTRUCTIONS&#10;1. Choose an exercise from the dropdown list.&#10;2. Define the sets and reps.&#10;3. Tap SUBMIT WORKOUT to log the workout."

@@ -3,14 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CourseworkApp.Views.ScorePage"
              Title="Score"
-             BackgroundColor="White">
+             BackgroundColor="#102825">
 
     <Grid RowDefinitions="0.2*, 0.4*, 0.4*">
-        <BoxView Style="{StaticResource headerBox}"/>
-        <BoxView Grid.Row="1" Color="White" />
-        <BoxView Grid.Row="2" Color="White" />
+    <BoxView Style="{StaticResource headerBox}"/>
 
-        <Label Grid.Row="0"
+    <Label Grid.Row="0"
             Text="Read the quote and get motivated!&#10;Keep working out and you'll earn the next shiny badge!"
             Style="{StaticResource headerLabel}"/>
 

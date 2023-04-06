@@ -3,13 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CourseworkApp.Views.HistoryPage"
              Title="Workout history"
-             BackgroundColor="White">
+             BackgroundColor="#102825">
 
     <Grid RowDefinitions="0.2*, 0.8*">
-        <BoxView Style="{StaticResource headerBox}"/>
-        <BoxView Grid.Row="1" Color="White" />
+    <BoxView Style="{StaticResource headerBox}"/>
 
-        <Label Grid.Row="0"
+    <Label Grid.Row="0"
             Text="View below a complete log of all workouts performed."
             Style="{StaticResource headerLabel}"/>
 

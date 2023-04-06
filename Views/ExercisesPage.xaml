@@ -5,11 +5,10 @@
              Title="Exercises"
              xmlns:viewmodel="clr-namespace:CourseworkApp.ViewModels"
              x:DataType="viewmodel:ExercisesPageViewModel"
-             BackgroundColor="White">
+             BackgroundColor="#102825">
 
     <Grid x:Name="mygrid" RowDefinitions="0.2*, 0.8*">
         <BoxView Style="{StaticResource headerBox}"/>
-        <BoxView Grid.Row="1" Color="White" />
 
         <Label Grid.Row="0"
             Text="Swipe to view all exercises in the database."
