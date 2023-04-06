@@ -27,15 +27,16 @@ public static class MauiProgram
 		return builder.Build();
 	}
 
+    // Registering views & viewmodels
     public static MauiAppBuilder RegisterViewsAndViewModels(this MauiAppBuilder mauiAppBuilder)
     {
-        //Pages
+        // Views
         mauiAppBuilder.Services.AddSingleton(typeof(Views.ExercisesPage));
         mauiAppBuilder.Services.AddTransient(typeof(Views.HistoryPage));
         mauiAppBuilder.Services.AddSingleton(typeof(Views.LogWorkoutPage));
         mauiAppBuilder.Services.AddSingleton(typeof(Views.ScorePage));
 
-        //Services
+        // ViewModels
         mauiAppBuilder.Services.AddSingleton(typeof(ViewModels.ExercisesPageViewModel));
         mauiAppBuilder.Services.AddTransient(typeof(ViewModels.HistoryPageViewModel));
         mauiAppBuilder.Services.AddSingleton(typeof(ViewModels.LogWorkoutPageViewModel));
@@ -45,6 +46,7 @@ public static class MauiProgram
         return mauiAppBuilder;
     }
 
+    // Registering services
     public static MauiAppBuilder RegisterServices(this MauiAppBuilder mauiAppBuilder)
     {
         mauiAppBuilder.Services.AddSingleton<IDatabaseService, HardcodedDatabaseService>();

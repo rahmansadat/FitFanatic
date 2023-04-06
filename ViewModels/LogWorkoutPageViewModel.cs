@@ -22,13 +22,12 @@ namespace CourseworkApp.ViewModels
 
         List<ExerciseModel> databaseResult;
 
-        // the following is a quick workaround that allows Binding to recognise the list
+        // Using 2 separate lists, public & private, is a quick workaround to allow Binding to recognise the list
         private List<ExerciseModel> items;
         public List<ExerciseModel> Items { get => items; set => items = value; }
 
         public LogWorkoutPageViewModel(IDatabaseService database)
         {
-            Console.WriteLine("PROMPT NUMBER: 2");
             LogWorkoutPageModel = new Models.LogWorkoutPageModel();
             this.database = database;
             SubmitWorkoutCommand = new Command(async () => await SubmitWorkout());
@@ -42,6 +41,8 @@ namespace CourseworkApp.ViewModels
                 items.Add(exercise);
             }
         }
+
+        // Defining models for reps, sets and exercises. The values will come from user input.
 
         public int Reps1
         {
@@ -190,6 +191,8 @@ namespace CourseworkApp.ViewModels
             }
         }
 
+        // This is called when the Submit Workout button is pressed.
+        // The workout submitted is logged in a text file.
         private async Task SubmitWorkout()
         {
             string dataToLog = $"Date: {DateTime.Now.Date.ToString(new CultureInfo("en-GB")).Remove(DateTime.Now.Date.ToString(new CultureInfo("en-GB")).Length - 9)}\nTime: {DateTime.Now.ToString("h:mm:ss tt")}\nExercises:";
@@ -220,16 +223,16 @@ namespace CourseworkApp.ViewModels
             }
             if ((Reps1 == 0 | Sets1 == 0 | Exercise1 == null) && (Reps2 == 0 | Sets2 == 0 | Exercise2 == null) && (Reps3 == 0 | Sets3 == 0 | Exercise3 == null) && (Reps4 == 0 | Sets4 == 0 | Exercise4 == null) && (Reps5 == 0 | Sets5 == 0 | Exercise5 == null) && (Reps6 == 0 | Sets6 == 0 | Exercise6 == null))
             {
+                // Displaying error alert
                 await Application.Current.MainPage.DisplayAlert("Error", "You need to have at least 1 exercise to log a workout.", "OK");
                 return;
             }
 
+            // Writing the workout data to a file
             dataToLog += "\n\n";
+            File.AppendAllText(Constants.WorkoutLogPath, dataToLog); // also creates the file if it doesn't exist
 
-            // Writing the data to the file
-            File.AppendAllText(Constants.WorkoutLogPath, dataToLog); // also creates the file if not exists
-
-            // Log the number of workouts
+            // Logging the number of workouts
             if (Preferences.Default.ContainsKey("workoutsCount"))
             {
                 int workoutsCount = Preferences.Default.Get("workoutsCount", -1);
@@ -239,11 +242,7 @@ namespace CourseworkApp.ViewModels
                 Preferences.Default.Set("workoutsCount", 1);
             }
 
-            // Checking
-            int checkCurrentCount = Preferences.Default.Get("workoutsCount", -1);
-            Console.WriteLine("Current preferences value is: ");
-            Console.WriteLine(checkCurrentCount);
-
+            // Displaying success alert
             await Application.Current.MainPage.DisplayAlert("Success", "Workout has been logged", "OK");
         }
     }

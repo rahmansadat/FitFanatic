@@ -10,7 +10,7 @@ public partial class App : Application
 
 		MainPage = new AppShell();
 
-		//var apiQuoteService = new Services.APIQuoteService();
+		// Fetching quotes from API during startup of the app
 		APIQuoteService.GetQuotesFromAPI();
     }
 }

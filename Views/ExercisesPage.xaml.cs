@@ -15,9 +15,10 @@ public partial class ExercisesPage : ContentPage
         InitializeComponent();
         BindingContext = viewModel;
 
+
+        // Creating carousel view of exercises
         CarouselView carouselView = new CarouselView();
         carouselView.SetBinding(ItemsView.ItemsSourceProperty, "Items");
-        
         carouselView.ItemTemplate = new DataTemplate(() =>
         {
             Grid grid = new Grid
@@ -50,8 +51,7 @@ public partial class ExercisesPage : ContentPage
             return grid;
         });
 
-
-
+        // Adding border around the carousel view
         mygrid.Add(new Border
         {
             Stroke = Color.FromArgb("#58CD36"),
@@ -68,8 +68,5 @@ public partial class ExercisesPage : ContentPage
             Content = carouselView
 
         }, 0, 1);
-
-        //mygrid.Add(carouselView, 0, 1);
-
     }
 }

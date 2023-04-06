@@ -18,6 +18,7 @@ public partial class ScorePage : ContentPage
         BindingContext = viewModel;
     }
 
+    // This is run when the icon of the score page in the tab layout is tapped 
     protected override async void OnAppearing()
     {
 
@@ -62,10 +63,14 @@ public partial class ScorePage : ContentPage
             Console.WriteLine("No quotes available at the moment.");
         }
 
+
+
         // SCORING SYSTEM
 
         mystack2.Children.Clear();
         int workoutsCount = Preferences.Default.Get("workoutsCount", -1);
+        
+        // If there are no workouts logged
         if (workoutsCount == -1)
         {
             StackLayout badgeStackLayout = new StackLayout { Spacing = 15, Orientation = StackOrientation.Horizontal };
@@ -103,8 +108,8 @@ public partial class ScorePage : ContentPage
                 Margin = 20,
                 Text = $"You have completed 0 workouts total.\nYou need to do 5 more to get the Bronze Shield."
             });
-
         }
+        // If there are less than 5 workouts logged
         else if (workoutsCount < 5)
         {
             StackLayout badgeStackLayout = new StackLayout { Spacing = 15, Orientation = StackOrientation.Horizontal };
@@ -153,8 +158,9 @@ public partial class ScorePage : ContentPage
                     Text = $"You have completed {workoutsCount} workouts total.\nYou need to do {5 - workoutsCount} more to get the Bronze Shield."
                 });
             }
-
-        } else if (workoutsCount < 10)
+        }
+        // If there are less than 10 workouts logged
+        else if (workoutsCount < 10)
         {
             StackLayout badgeStackLayout = new StackLayout { Spacing = 15, Orientation = StackOrientation.Horizontal};
             mystack2.Add(new Border
@@ -191,8 +197,9 @@ public partial class ScorePage : ContentPage
                 Margin = 20,
                 Text = $"You have completed {workoutsCount} workouts total.\nYou need to do {10 - workoutsCount} more to get the Silver Shield."
             });
-
-        } else if (workoutsCount < 20)
+        }
+        // If there are less than 20 workouts logged
+        else if (workoutsCount < 20)
         {
             StackLayout badgeStackLayout = new StackLayout { Spacing = 15, Orientation = StackOrientation.Horizontal };
             mystack2.Add(new Border
@@ -229,8 +236,9 @@ public partial class ScorePage : ContentPage
                 Margin = 20,
                 Text = $"You have completed {workoutsCount} workouts total.\nYou need to do {20 - workoutsCount} more to get the Gold Shield."
             });
-
-        } else if (workoutsCount < 50)
+        }
+        // If there are less than 50 workouts logged
+        else if (workoutsCount < 50)
         {
             StackLayout badgeStackLayout = new StackLayout { Spacing = 15, Orientation = StackOrientation.Horizontal };
             mystack2.Add(new Border
@@ -267,8 +275,9 @@ public partial class ScorePage : ContentPage
                 Margin = 20,
                 Text = $"You have completed {workoutsCount} workouts total.\nYou need to do {50 - workoutsCount} more to get the Platinum Shield."
             });
-
-        } else
+        }
+        // If there are 50 or more workouts logged
+        else
         {
             StackLayout badgeStackLayout = new StackLayout { Spacing = 15, Orientation = StackOrientation.Horizontal };
             mystack2.Add(new Border

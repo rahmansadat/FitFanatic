@@ -9,6 +9,7 @@ namespace CourseworkApp.Interfaces
 {
     public interface IDatabaseService
     {
+        // Get all exercises
         List<ExerciseModel> GetExercises();
     }
 }

@@ -22,7 +22,7 @@ namespace CourseworkApp.Services
             quotes = new List<QuoteModel>();
         }
 
-
+        // Retrieve quotes from an external API
         static public async void GetQuotesFromAPI()
         {
             var items = new List<QuoteModel>();
@@ -31,6 +31,7 @@ namespace CourseworkApp.Services
 
             try
             {
+                // Repeat 10 times to get 10 quotes
                 for (int i = 0; i < 10; i++)
                 {
                     HttpResponseMessage response = await _client.GetAsync(uri);
@@ -39,33 +40,18 @@ namespace CourseworkApp.Services
                         string result = await response.Content.ReadAsStringAsync();
                         Dictionary<string, object> values = JsonSerializer.Deserialize<Dictionary<string, object>>(result);
 
-                        foreach(var pair in values)
-                        {
-                            Console.WriteLine("in dictionary");
-                            Console.WriteLine(pair.Key);
-                            Console.WriteLine(pair.Value);
-                        };
-
-
-                        Console.WriteLine("10");
                         object testt = values["text"];
-                        Console.WriteLine(testt.ToString());
                         string quote = values["text"].ToString();
-                        Console.WriteLine("11");
 
                         var stringedAuthor = values["author"].ToString();
-                        //Dictionary<string, string> temp = (Dictionary<string, string>)values["author"];
                         Dictionary<string, string> temp = JsonSerializer.Deserialize<Dictionary<string, string>>(stringedAuthor);
-                        Console.WriteLine("12");
                         string author = temp["name"];
-                        Console.WriteLine("13");
 
                         APIQuoteService.quotes.Add(new QuoteModel()
                         {
                             Quote = quote,
                             Author = author
                         });
-                        Console.WriteLine("14");
 
                         quotesReceived = true;
                     } else
@@ -81,6 +67,7 @@ namespace CourseworkApp.Services
             }
         }
 
+        // Get a random quote from the list of quotes retrieved by the API
         static public QuoteModel GetRandomQuote()
         {
             try

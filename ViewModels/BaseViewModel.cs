@@ -12,6 +12,7 @@ namespace CourseworkApp.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        // In the case that a property changes
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             if (PropertyChanged != null)

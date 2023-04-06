@@ -17,6 +17,8 @@ namespace CourseworkApp.Services
         {
             this.exercises = new List<ExerciseModel>();
 
+            // Create the exercises.
+
             exercises.Add(new ExerciseModel()
             {
                 Id = 1,
@@ -187,6 +189,7 @@ namespace CourseworkApp.Services
             });
         }
 
+        // Get the exercises created
         public List<ExerciseModel> GetExercises()
         {
             try

@@ -15,10 +15,13 @@ public partial class HistoryPage : ContentPage
         BindingContext = viewModel;
     }
 
+    // This is run when the icon of the history page in the tab layout is tapped 
     protected override async void OnAppearing()
     {
         var viewModel = new ViewModels.HistoryPageViewModel();
         mainStack.Children.Clear();
+
+        // If there are workouts logged, shows them on screen.
         if (File.Exists(Constants.WorkoutLogPath))
         {
             var fileData = File.ReadAllText(Constants.WorkoutLogPath);
@@ -71,6 +74,7 @@ public partial class HistoryPage : ContentPage
         }
     }
 
+    // Resets the counter that tracks how many workouts were logged
     void EraseWorkoutLog()
     {
         File.Delete(Constants.WorkoutLogPath);

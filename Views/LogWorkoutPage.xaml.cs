@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CourseworkApp.Models;
 using CourseworkApp.ViewModels;
+using Microsoft.Maui.Controls;
 
 namespace CourseworkApp.Views;
 
@@ -16,6 +17,7 @@ public partial class LogWorkoutPage : ContentPage
         BindingContext = viewModel;
     }
 
+    // This runs when the stepper value is changed by the user.
     void OnStepperValueChanged(object sender, ValueChangedEventArgs e)
     {
         stepperLabel1.Text = stepper1.Value.ToString();
@@ -34,12 +36,9 @@ public partial class LogWorkoutPage : ContentPage
         viewModel.Sets6 = (int)stepper6.Value;
     }
 
+    // This runs when the entry value is changed by the user.
     void OnRepsEntryValueChanged(object sender, TextChangedEventArgs e)
     {
-        //Type type = reps1.Text.GetType();
-        //Console.WriteLine("The value is now: ");
-        //Console.WriteLine(type);
-
         var viewModel = (BindingContext as LogWorkoutPageViewModel);
         // Set model value according to the value in the field
         if (reps1.Text != null && reps1.Text != string.Empty) viewModel.Reps1 = int.Parse(reps1.Text);
@@ -58,6 +57,7 @@ public partial class LogWorkoutPage : ContentPage
         if (reps6.Text == string.Empty) viewModel.Reps6 = 0;
     }
 
+    // This runs when the picker value is changed by the user.
     void OnPickerValueChanged(object sender, EventArgs e)
     {
         var viewModel = (BindingContext as LogWorkoutPageViewModel);
