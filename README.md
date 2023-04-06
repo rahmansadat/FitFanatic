@@ -6,7 +6,6 @@ Welcome to FitFanatic, the workout tracker app that will make you fall in love w
 ## Features
 - Log workout sessions.
 - Discover exercises that target specific body-parts.
-- Use in-app timer to keep track of rest times in between workout sets.
 - Score points by logging workouts and earn badges.
 - Get inspired by motivational quotes.
 - View a record of all workouts logged.
