@@ -7,12 +7,7 @@ Welcome to FitFanatic, the workout tracker app that will make you fall in love w
 - Log workout sessions.
 - Discover exercises that target specific body-parts.
 - Score points by logging workouts and earn badges.
-- Get inspired by motivational quotes.
-- View a record of all workouts logged.
-
-## Technologies
-- .NET MAUI
-- SQLite
+- View a complete record of all workouts logged.
 
 ## Contributing
 All contributions are welcome. Do not hesitate to submit a pull request if you wish to contribute.
